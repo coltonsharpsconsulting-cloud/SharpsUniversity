@@ -3,12 +3,14 @@
  *
  * The public mirror of the vault. Same law, same palette, same faces, so a
  * student who opens the site and a student who opens Obsidian are looking at
- * one school — squares are identity, circles are state, oxblood is constant and
+ * one school — squares are identity, circles are state, duty black leads and
  * the course hue is the variable.
  *
- * Every colour here is the contrast-verified set: --ink, --muted, --faint,
- * --primary, --accent all clear 4.5:1 on both --paper and --surface, in both
- * themes. Brass has two values because it has two grounds.
+ * First-responder palette: duty black #0E1116, signal blue #14427C, alarm red
+ * #A81726, hi-vis #C6D92E. Black-led with hi-vis is what keeps this clear of
+ * ALA's navy + red rather than reading as a sub-brand of it. Every value is
+ * contrast-verified on both grounds in both themes; hi-vis is an accent and a
+ * fill, never a field.
  * ========================================================================== */
 
 @font-face { font-family:"Spectral"; src:url("fonts/spectral.woff2") format("woff2"); font-weight:200 800; font-display:swap; }
@@ -16,11 +18,11 @@
 @font-face { font-family:"DM Mono";  src:url("fonts/dm-mono.woff2")  format("woff2"); font-weight:300 500; font-display:swap; }
 
 :root{
-  --paper:#f4f0e8; --surface:#fff; --surface-2:#ede8dc;
-  --ink:#141118; --muted:#5f5a55; --faint:#706960;
-  --primary:#5c1f26; --accent:#7f642e; --accent-soft:#f0e7d3;
-  --line:#dcd5c8; --grid:rgba(92,31,38,.055);
-  --course:#8b5cf6;
+  --paper:#f5f6f8; --surface:#fff; --surface-2:#eceef2;
+  --ink:#10141a; --muted:#49535f; --faint:#5f6975;
+  --primary:#14427c; --accent:#a81726; --accent-soft:#f7e4e6;
+  --line:#dce0e6; --grid:rgba(20,66,124,.05);
+  --course:#8b5cf6; --hivis:#c6d92e; --hivis-ink:#4f5806;
   --shadow:0 1px 2px rgba(20,17,24,.05),0 10px 30px rgba(20,17,24,.07);
   --serif:"Spectral",Georgia,serif;
   --sans:"Inter",ui-sans-serif,system-ui,-apple-system,sans-serif;
@@ -29,25 +31,31 @@
 }
 @media (prefers-color-scheme: dark){
   :root{
-    --paper:#0d1322; --surface:#171e30; --surface-2:#1e2739;
-    --ink:#f2efea; --muted:#9a938c; --faint:#8b8579;
-    --primary:#d4b063; --accent:#d98892; --accent-soft:#31191d;
-    --line:#2c3644; --grid:rgba(212,176,99,.06);
+    --paper:#0e1116; --surface:#171c24; --surface-2:#1f2530;
+    --ink:#eaeef3; --muted:#97a2b0; --faint:#828d9b;
+    --primary:#7fb2ff; --accent:#ff7a7a; --accent-soft:#2a1618;
+    --line:#242c38; --grid:rgba(127,178,255,.06); --hivis:#d8e64a; --hivis-ink:#0e1116;
     --shadow:0 1px 2px rgba(0,0,0,.3),0 12px 34px rgba(0,0,0,.35);
   }
 }
 :root[data-theme="dark"]{
-  --paper:#0d1322; --surface:#171e30; --surface-2:#1e2739;
-  --ink:#f2efea; --muted:#9a938c; --faint:#8b8579;
-  --primary:#d4b063; --accent:#d98892; --accent-soft:#31191d;
-  --line:#2c3644; --grid:rgba(212,176,99,.06);
+  --paper:#0e1116; --surface:#171c24; --surface-2:#1f2530;
+  --ink:#eaeef3; --muted:#97a2b0; --faint:#828d9b;
+  --primary:#7fb2ff; --accent:#ff7a7a; --accent-soft:#2a1618;
+  --line:#242c38; --grid:rgba(127,178,255,.06); --hivis:#d8e64a; --hivis-ink:#0e1116;
 }
 :root[data-theme="light"]{
-  --paper:#f4f0e8; --surface:#fff; --surface-2:#ede8dc;
-  --ink:#141118; --muted:#5f5a55; --faint:#706960;
-  --primary:#5c1f26; --accent:#7f642e; --accent-soft:#f0e7d3;
-  --line:#dcd5c8; --grid:rgba(92,31,38,.055);
+  --paper:#f5f6f8; --surface:#fff; --surface-2:#eceef2;
+  --ink:#10141a; --muted:#49535f; --faint:#5f6975;
+  --primary:#14427c; --accent:#a81726; --accent-soft:#f7e4e6;
+  --line:#dce0e6; --grid:rgba(20,66,124,.05); --hivis:#c6d92e; --hivis-ink:#4f5806;
 }
+
+/* the chevron — apparatus striping, used as a rule. Never wallpaper. */
+.chev{height:9px;border-radius:2px;margin:1.4rem 0;
+  background:repeating-linear-gradient(115deg,
+    var(--accent) 0 14px, transparent 14px 28px, var(--hivis) 28px 42px, transparent 42px 56px),
+  var(--surface-2)}
 
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
@@ -96,12 +104,14 @@ h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.6rem,7vw,4.4rem);l
 .door::before{content:"";position:absolute;top:18px;left:18px;width:14px;height:14px;
   border-radius:3px;background:var(--accent-c,var(--primary))}       /* identity */
 .door .state{position:absolute;top:18px;right:18px;width:9px;height:9px;border-radius:50%;
-  background:#3a9b6d;box-shadow:0 0 0 4px rgba(58,155,109,.16)}      /* state */
+  background:var(--hivis);box-shadow:0 0 0 4px rgba(198,217,46,.18)}      /* state */
 .door .kick{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint)}
 .door .name{font-family:var(--serif);font-weight:400;font-size:clamp(1.9rem,4vw,2.6rem);line-height:1.05;margin-top:.15rem}
 .door .desc{color:var(--muted);font-size:.93rem;margin-top:.45rem}
 .door--student{--accent-c:var(--course)}
 .door--registrar{--accent-c:var(--accent)}
+.door--line{--accent-c:var(--hivis)}
+.door--turnin{--accent-c:var(--accent)}
 
 /* buttons + sections */
 .btnrow{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:1.6rem}
