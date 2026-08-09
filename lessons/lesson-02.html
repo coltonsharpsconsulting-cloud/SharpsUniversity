@@ -323,18 +323,18 @@ textarea{width:100%;min-height:80px;font-family:var(--sans);font-size:.96rem;pad
   <div class="shead">When you are done</div>
   <div class="stitle">Send your work to Colton</div>
   <div class="send">
-    <h3>One tap</h3>
-    <p class="sub" style="margin:0">This gathers everything you answered, everything you wrote, and everything
-    you flagged as <b>still fuzzy</b>, and files it in Colton's inbox. Nothing leaves your device except
-    into your own vault.</p>
-    <button class="sendbtn" id="send">Send my work to Colton</button>
+    <h3>Download, then drop it in your vault</h3>
+    <p class="sub" style="margin:0">This gathers everything you answered, everything you wrote, and
+    everything you flagged as <b>still fuzzy</b>, as a single Markdown file. Put it in your Obsidian
+    vault under <code>Registrar/Inbox</code> &mdash; that is your own archive, and Colton reads it
+    before the session. Nothing is uploaded anywhere; the file goes to your device and no further.</p>
+    <button class="sendbtn" id="dl">Download my answers</button>
     <div class="sendrow">
-      <button class="altbtn" id="copy">Copy instead</button>
-      <button class="altbtn" id="dl">Download a copy</button>
+      <button class="altbtn" id="copy">Copy to clipboard instead</button>
     </div>
     <div class="status" id="status"></div>
-    <noscript><div class="noscript">Sending needs scripts turned on. Without them, write your
-      answers straight into this week's Compass note instead — it syncs to Colton automatically.</div></noscript>
+    <noscript><div class="noscript">Downloading needs scripts on. Without them you can still read
+      and work the whole page &mdash; write your answers into this week&rsquo;s Compass note instead.</div></noscript>
   </div>
 </section>
 
@@ -456,28 +456,18 @@ textarea{width:100%;min-height:80px;font-family:var(--sans);font-size:.96rem;pad
   var st=document.getElementById('status');
   function say(m){ if(st)st.textContent=m; }
 
-  var sendBtn=document.getElementById('send');
-  if(sendBtn) sendBtn.addEventListener('click',function(){
-    var md=markdown();
-    var file='Registrar/Inbox/'+today()+' L02 Stephen';
-    var uri='obsidian://new?file='+encodeURIComponent(file)+'&append=true&content='+encodeURIComponent(md);
-    say('Opening Obsidian…');
-    try{ window.location.href=uri; setTimeout(function(){
-      say('If nothing happened, use “Copy instead” and paste into this week’s Compass note.');},2200);
-    }catch(e){ say('Could not open Obsidian — use “Copy instead”.'); }
-  });
   var copyBtn=document.getElementById('copy');
   if(copyBtn) copyBtn.addEventListener('click',function(){
     var md=markdown();
     function fallback(){
       var ta=document.createElement('textarea'); ta.value=md;
       ta.style.cssText='position:fixed;opacity:0'; document.body.appendChild(ta);
-      ta.select(); try{document.execCommand('copy');say('Copied — paste it into this week’s Compass note.');}
+      ta.select(); try{document.execCommand('copy');say('Copied — paste it into a new note in Registrar/Inbox.');}
       catch(e){say('Could not copy automatically. Use “Download a copy”.');}
       document.body.removeChild(ta);
     }
     if(navigator.clipboard&&navigator.clipboard.writeText){
-      navigator.clipboard.writeText(md).then(function(){say('Copied — paste it into this week’s Compass note.');},fallback);
+      navigator.clipboard.writeText(md).then(function(){say('Copied — paste it into a new note in Registrar/Inbox.');},fallback);
     } else fallback();
   });
   var dlBtn=document.getElementById('dl');
@@ -488,7 +478,7 @@ textarea{width:100%;min-height:80px;font-family:var(--sans);font-size:.96rem;pad
       a.href=URL.createObjectURL(blob);
       a.download=today()+' L02 Stephen.md';
       document.body.appendChild(a); a.click(); document.body.removeChild(a);
-      say('Downloaded. Move it into Registrar/Inbox in the vault.');
+      say('Saved. Put it in your vault under Registrar/Inbox.');
     }catch(e){ say('Download blocked here — try “Copy instead”.'); }
   });
 })();</script>
