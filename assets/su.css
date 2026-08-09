@@ -120,6 +120,11 @@ h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.6rem,7vw,4.4rem);l
   transition:background .2s ease,color .2s ease}
 .btn:hover{background:var(--primary);color:var(--paper)}
 .btn--quiet{color:var(--muted);border-color:var(--line)}
+/* the repo link — deliberately quiet. It is for Colton, not for Stephen. */
+.btn--repo{display:inline-flex;align-items:center;gap:7px;color:var(--faint);border-color:var(--line);
+  font-size:11px;padding:9px 14px}
+.btn--repo svg{width:14px;height:14px;fill:currentColor}
+.btn--repo:hover{color:var(--primary);border-color:var(--primary);background:none}
 .btn--quiet:hover{background:none;color:var(--primary);border-color:var(--primary)}
 
 .note{max-width:44rem;margin:3.5rem auto 0;padding-top:2rem;border-top:1px solid var(--line);color:var(--muted);font-size:.97rem}
