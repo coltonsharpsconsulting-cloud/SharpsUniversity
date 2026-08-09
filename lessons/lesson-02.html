@@ -326,13 +326,10 @@ textarea{width:100%;min-height:80px;font-family:var(--sans);font-size:.96rem;pad
   <div class="send">
     <h3>Download, then drop it in your vault</h3>
     <p class="sub" style="margin:0">This gathers everything you answered, everything you wrote, and
-    everything you flagged as <b>still fuzzy</b>, as a single Markdown file. Put it in your Obsidian
-    vault under <code>Registrar/Inbox</code> &mdash; that is your own archive, and Colton reads it
-    before the session. Nothing is uploaded anywhere; the file goes to your device and no further.</p>
+    everything you flagged as <b>still fuzzy</b>, into a single file. Download it, then move it into
+    the <b>Inbox</b> folder in your vault &mdash; that is your own archive, and it is how Colton gets
+    your work. Nothing is uploaded anywhere; the file goes to your device and no further.</p>
     <button class="sendbtn" id="dl">Download my answers</button>
-    <div class="sendrow">
-      <button class="altbtn" id="copy">Copy to clipboard instead</button>
-    </div>
     <div class="status" id="status"></div>
     <noscript><div class="noscript">Downloading needs scripts on. Without them you can still read
       and work the whole page &mdash; write your answers into this week&rsquo;s Compass note instead.</div></noscript>
@@ -463,12 +460,12 @@ textarea{width:100%;min-height:80px;font-family:var(--sans);font-size:.96rem;pad
     function fallback(){
       var ta=document.createElement('textarea'); ta.value=md;
       ta.style.cssText='position:fixed;opacity:0'; document.body.appendChild(ta);
-      ta.select(); try{document.execCommand('copy');say('Copied — paste it into a new note in Registrar/Inbox.');}
+      ta.select(); try{document.execCommand('copy');say('Copied.');}
       catch(e){say('Could not copy automatically. Use “Download a copy”.');}
       document.body.removeChild(ta);
     }
     if(navigator.clipboard&&navigator.clipboard.writeText){
-      navigator.clipboard.writeText(md).then(function(){say('Copied — paste it into a new note in Registrar/Inbox.');},fallback);
+      navigator.clipboard.writeText(md).then(function(){say('Copied.');},fallback);
     } else fallback();
   });
   var dlBtn=document.getElementById('dl');
@@ -479,7 +476,7 @@ textarea{width:100%;min-height:80px;font-family:var(--sans);font-size:.96rem;pad
       a.href=URL.createObjectURL(blob);
       a.download=today()+' L02 Stephen.md';
       document.body.appendChild(a); a.click(); document.body.removeChild(a);
-      say('Saved. Put it in your vault under Registrar/Inbox.');
+      say('Saved. Now move that file into the Inbox folder in your vault.');
     }catch(e){ say('Download blocked here — try “Copy instead”.'); }
   });
 })();</script>
