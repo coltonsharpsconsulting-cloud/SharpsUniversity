@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sharp's University</title>
+<meta name="description" content="Sharp's University — individual instruction. Geometry, for Stephen Salas.">
+<meta name="theme-color" content="#5c1f26">
+<link rel="icon" href="assets/su-mark.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/su.css">
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <a class="brandline" href="./">
+      <svg viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="35" cy="57" r="30" fill="none" stroke="var(--accent)" stroke-width="3.6"/>
+        <circle cx="65" cy="57" r="30" fill="none" stroke="var(--accent)" stroke-width="3.6"/>
+        <path d="M35 57 L65 57 L50 31.02 Z" fill="var(--primary)"/>
+      </svg>
+      <b>Sharp&rsquo;s University</b>
+    </a>
+    <button class="themebtn" id="themebtn">◐ Theme</button>
+  </div>
+
+  <header class="mast">
+    <svg class="mark" viewBox="0 0 100 100" role="img" aria-label="Sharp's University">
+      <circle cx="35" cy="57" r="30" fill="none" stroke="var(--accent)" stroke-width="3.6"/>
+      <circle cx="65" cy="57" r="30" fill="none" stroke="var(--accent)" stroke-width="3.6"/>
+      <path d="M35 57 L65 57 L50 31.02 Z" fill="var(--primary)"/>
+    </svg>
+    <div class="eyebrow">Individual Instruction &middot; Est. MMXXVI</div>
+    <h1>Sharp&rsquo;s University</h1>
+    <p class="lede">Two circles, each struck through the other&rsquo;s centre, meeting to build a triangle.
+      The first thing anyone constructs with a compass and a straightedge &mdash; and the reason
+      geometry is taught by building, not by watching.</p>
+  </header>
+
+  <nav class="doors" aria-label="Choose a door">
+    <a class="door door--student" href="stephen/">
+      <span class="state" aria-hidden="true"></span>
+      <span class="kick">Student</span>
+      <span class="name">Stephen</span>
+      <span class="desc">This week&rsquo;s lessons, the practice, and what to bring Tuesday.</span>
+    </a>
+    <a class="door door--registrar" href="registrar/">
+      <span class="state" aria-hidden="true"></span>
+      <span class="kick">Records</span>
+      <span class="name">Registrar</span>
+      <span class="desc">Mastery, the portfolio, and the transcript toward 1.0 Geometry credit.</span>
+    </a>
+  </nav>
+
+  <div class="btnrow">
+    <a class="btn" href="stephen/">Open this week &rarr;</a>
+    <a class="btn btn--quiet" href="#how">How this works</a>
+  </div>
+
+  <section class="note" id="how">
+    <h2>How this works</h2>
+    <p>Geometry runs on a simple rhythm. Stephen teaches himself the lesson, then Colton comes
+      Tuesday and Thursday to make it real &mdash; measure something, build something, and find out
+      whether the maths actually closes.</p>
+    <ol class="steps">
+      <li><b>Work the practice here.</b> Every lesson is one page: a reading, then two sets of
+        practice with a hint and a worked answer on each question. No grade, no clock.</li>
+      <li><b>Flag what didn&rsquo;t land.</b> Tick <i>Still fuzzy</i> on anything that doesn&rsquo;t click.
+        That list is the agenda for the session &mdash; it costs nothing to be honest about.</li>
+      <li><b>Download your answers</b> when you&rsquo;re done, and drop the file into your Obsidian
+        vault under <code>Registrar/Inbox</code>. That&rsquo;s your own archive, and Colton sees it.</li>
+      <li><b>Bring your hands Tuesday.</b> The session card tells you what to gather &mdash; tacks and
+        string, a protractor, a tape measure, a clock face.</li>
+    </ol>
+    <p style="margin-top:1.4rem">Nothing here needs an account, and nothing you type is sent anywhere.
+      The page runs entirely on your device; downloading is the only way anything leaves it.</p>
+  </section>
+
+  <footer>SHARP&rsquo;S UNIVERSITY &middot; GEOMETRY &middot; STEPHEN SALAS &middot; EST. MMXXVI</footer>
+</div>
+
+<script>
+(function () {
+  var root = document.documentElement, btn = document.getElementById('themebtn');
+  // remember the choice across pages; harmless if storage is unavailable
+  try { var saved = localStorage.getItem('su-theme'); if (saved) root.setAttribute('data-theme', saved); } catch (e) {}
+  btn.addEventListener('click', function () {
+    var cur = root.getAttribute('data-theme') ||
+      (matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light');
+    var next = cur === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('su-theme', next); } catch (e) {}
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Stephen · Sharp's University</title>
+<meta name="theme-color" content="#5c1f26">
+<link rel="icon" href="../assets/su-mark.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/su.css">
+<style>
+  .weeks{margin-top:2rem}
+  .wk{background:var(--surface);border:1px solid var(--line);border-radius:6px;box-shadow:var(--shadow);
+      padding:22px 24px;margin:16px 0}
+  .wk.now{border-color:var(--primary);border-width:2px}
+  .wk-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+  .wk-n{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
+  .wk-now{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+      color:var(--paper);background:var(--primary);border-radius:3px;padding:3px 8px}
+  .wk h3{font-family:var(--serif);font-weight:400;font-size:1.5rem;margin:.3rem 0 .2rem}
+  .wk .dates{font-family:var(--mono);font-size:11.5px;color:var(--faint);letter-spacing:.06em}
+  .lessons{list-style:none;padding:0;margin:1.1rem 0 0}
+  .lessons li{border-top:1px solid var(--line);padding:.85rem 0}
+  .lessons a{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
+  .lessons a:hover .lt{color:var(--primary)}
+  .ln{font-family:var(--mono);font-size:12px;color:var(--accent);flex:0 0 auto}
+  .lt{font-family:var(--serif);font-size:1.15rem}
+  .go{margin-left:auto;color:var(--primary)}
+  .sess{margin-top:1.1rem;padding-top:.9rem;border-top:1px solid var(--line);
+      font-size:.93rem;color:var(--muted)}
+  .sess b{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:.3rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <a class="brandline" href="../">
+      <svg viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="35" cy="57" r="30" fill="none" stroke="var(--accent)" stroke-width="3.6"/>
+        <circle cx="65" cy="57" r="30" fill="none" stroke="var(--accent)" stroke-width="3.6"/>
+        <path d="M35 57 L65 57 L50 31.02 Z" fill="var(--primary)"/>
+      </svg>
+      <b>Sharp&rsquo;s University</b>
+    </a>
+    <button class="themebtn" id="themebtn">◐ Theme</button>
+  </div>
+
+  <header style="padding:2.5rem 0 .5rem">
+    <div class="eyebrow">Student &middot; Geometry</div>
+    <h1 style="font-size:clamp(2.2rem,6vw,3.4rem);text-align:left">Stephen</h1>
+    <p class="lede" style="margin:.8rem 0 0;text-align:left">Twenty weeks, thirty lessons, two sessions a week.
+      You work the lesson on your own; Tuesday and Thursday we go make it real.</p>
+  </header>
+
+  <div class="weeks">
+
+    <article class="wk now">
+      <div class="wk-head">
+        <span class="wk-n">Week 01</span>
+        <span class="wk-now">This week</span>
+      </div>
+      <h3>Points, Lines, Rays &amp; Segments &middot; Planes &amp; Sets</h3>
+      <div class="dates">Tue 11 Aug &middot; Thu 13 Aug</div>
+      <ul class="lessons">
+        <li><a href="../lessons/lesson-01.html">
+          <span class="ln">L01</span><span class="lt">Points, Lines, Rays &amp; Segments</span><span class="go">&rarr;</span></a></li>
+        <li><a href="../lessons/lesson-02.html">
+          <span class="ln">L02</span><span class="lt">Planes &amp; Sets</span><span class="go">&rarr;</span></a></li>
+      </ul>
+      <div class="sess"><b>With Colton</b>
+        Tuesday &mdash; the String-Line Lab: build a point, segment, ray and line out of tacks and string,
+        and find out which of them you can measure. Thursday &mdash; the Plane Hunt: name a real plane by
+        three points, then sort ten objects into a union and an intersection.</div>
+    </article>
+
+    <article class="wk">
+      <div class="wk-head"><span class="wk-n">Week 02</span></div>
+      <h3>Angles &middot; Types of Angles</h3>
+      <div class="dates">Tue 18 Aug &middot; Thu 20 Aug</div>
+      <ul class="lessons">
+        <li><a href="../lessons/lesson-03.html">
+          <span class="ln">L03</span><span class="lt">Angles: Measuring &amp; Drawing</span><span class="go">&rarr;</span></a></li>
+        <li><a href="../lessons/lesson-04.html">
+          <span class="ln">L04</span><span class="lt">Types of Angles</span><span class="go">&rarr;</span></a></li>
+      </ul>
+      <div class="sess"><b>With Colton</b>
+        Tuesday &mdash; hunt three real angles and measure them, then draw 30&deg;, 90&deg; and 135&deg; to spec.
+        Thursday &mdash; find all five angle types in the house, then build the hard one: a reflex angle.</div>
+    </article>
+
+    <article class="wk">
+      <div class="wk-head"><span class="wk-n">Week 03</span></div>
+      <h3>Parallel &amp; Perpendicular &middot; Angle Pairs</h3>
+      <div class="dates">Tue 25 Aug &middot; Thu 27 Aug</div>
+      <p style="color:var(--faint);font-size:.93rem;margin:1rem 0 0">Opens after Week 02.</p>
+    </article>
+
+  </div>
+
+  <section class="note">
+    <h2>When you finish a lesson</h2>
+    <ol class="steps">
+      <li>Tick <b>Still fuzzy</b> on anything that didn&rsquo;t land. That&rsquo;s what we start with.</li>
+      <li>Hit <b>Download my answers</b> at the bottom of the page.</li>
+      <li>Put the file in your Obsidian vault under <code>Registrar/Inbox</code>. It&rsquo;s yours &mdash;
+        and Colton reads it before the session.</li>
+    </ol>
+  </section>
+
+  <footer>SHARP&rsquo;S UNIVERSITY &middot; GEOMETRY &middot; STEPHEN SALAS</footer>
+</div>
+
+<script>
+(function () {
+  var root = document.documentElement, btn = document.getElementById('themebtn');
+  try { var s = localStorage.getItem('su-theme'); if (s) root.setAttribute('data-theme', s); } catch (e) {}
+  btn.addEventListener('click', function () {
+    var cur = root.getAttribute('data-theme') || (matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light');
+    var n = cur === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', n);
+    try { localStorage.setItem('su-theme', n); } catch (e) {}
+  });
+})();
+</script>
+</body>
+</html>

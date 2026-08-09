@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Registrar · Sharp's University</title>
+<link rel="icon" href="../assets/su-mark.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/su.css">
+</head><body><div class="wrap">
+<div class="topbar">
+  <a class="brandline" href="../">
+    <svg viewBox="0 0 100 100" aria-hidden="true">
+      <circle cx="35" cy="57" r="30" fill="none" stroke="var(--accent)" stroke-width="3.6"/>
+      <circle cx="65" cy="57" r="30" fill="none" stroke="var(--accent)" stroke-width="3.6"/>
+      <path d="M35 57 L65 57 L50 31.02 Z" fill="var(--primary)"/>
+    </svg><b>Sharp&rsquo;s University</b></a>
+  <button class="themebtn" id="themebtn">◐ Theme</button>
+</div>
+<header style="padding:2.5rem 0 .5rem">
+  <div class="eyebrow">Records</div>
+  <h1 style="font-size:clamp(2.2rem,6vw,3.4rem);text-align:left">Registrar</h1>
+  <p class="lede" style="margin:.8rem 0 0;text-align:left">The transcript-facing side of the course:
+    mastery, the portfolio, and credit.</p>
+</header>
+<section class="note" style="margin-top:2rem">
+  <h2>Where the record lives</h2>
+  <p>The authoritative record is kept in the vault, not on this site &mdash; a transcript should not
+    depend on a web page staying up. This page exists so a parent can see what is being tracked
+    without installing anything.</p>
+  <ol class="steps">
+    <li><b>Mastery &amp; Progress</b> &mdash; per-lesson, marked Emerging / Proficient / Mastered,
+      from the checkpoint and the evidence log rather than a single test score.</li>
+    <li><b>Portfolio</b> &mdash; the build artifacts. Photographs of the string-line lab, the measured
+      angles, the clinometer, the capstone.</li>
+    <li><b>Transcript</b> &mdash; the semester and year record toward <b>1.0 Geometry credit</b>.</li>
+    <li><b>Inbox</b> &mdash; where Stephen&rsquo;s downloaded practice arrives, read before each session.</li>
+  </ol>
+  <p style="margin-top:1.4rem">Twenty weeks, thirty Math-U-See lessons, forty sessions. Full coverage;
+    nothing dropped to fit the calendar.</p>
+</section>
+<footer>SHARP&rsquo;S UNIVERSITY &middot; REGISTRAR &middot; STEPHEN SALAS</footer>
+</div>
+<script>
+(function(){var r=document.documentElement,b=document.getElementById('themebtn');
+try{var s=localStorage.getItem('su-theme');if(s)r.setAttribute('data-theme',s);}catch(e){}
+b.addEventListener('click',function(){var c=r.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
+var n=c==='dark'?'light':'dark';r.setAttribute('data-theme',n);try{localStorage.setItem('su-theme',n);}catch(e){}});})();
+</script></body></html>
